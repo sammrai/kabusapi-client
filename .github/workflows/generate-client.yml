@@ -59,6 +59,27 @@ jobs:
           mv temp-client/README.md ./
           mv temp-client/.gitignore ./client.gitignore
 
+          # Add installation instructions to README
+          cat >> README.md << 'EOF'
+
+## Installation
+
+Install directly from GitHub:
+
+```bash
+# Using uv
+uv add git+https://github.com/sammrai/kabusapi-client.git
+
+# Using pip
+pip install git+https://github.com/sammrai/kabusapi-client.git
+```
+
+## Repository
+
+- GitHub: https://github.com/sammrai/kabusapi-client
+- Generated from: [kabu STATION API](https://kabucom.github.io/kabusapi/reference/)
+EOF
+
           # Clean up
           rm -rf temp-client config.yaml
 
