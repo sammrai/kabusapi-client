@@ -39,7 +39,20 @@ jobs:
 
       - name: Generate Python client
         run: |
-          openapi-python-client generate --path kabu_STATION_API.yaml --output-path ./generated-client
+          # Remove old generated client if exists
+          rm -rf kabu_ステーションapi_client pyproject.toml README.md .gitignore
+
+          # Generate client in temp directory
+          openapi-python-client generate --path kabu_STATION_API.yaml --output-path ./temp-client
+
+          # Move generated files to repository root
+          mv temp-client/kabu_ステーションapi_client ./
+          mv temp-client/pyproject.toml ./
+          mv temp-client/README.md ./
+          mv temp-client/.gitignore ./client.gitignore
+
+          # Clean up temp directory
+          rm -rf temp-client
 
       - name: Check for changes and create PR
         env:
