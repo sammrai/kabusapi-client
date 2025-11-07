@@ -82,5 +82,4 @@ jobs:
 
           🤖 Generated with [Claude Code](https://claude.com/claude-code)" \
             --base master \
-            --head "$BRANCH_NAME" \
-            --label "automated,openapi"
+            --head "$BRANCH_NAME"
