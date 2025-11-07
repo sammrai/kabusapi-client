@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "kabu-ステーションapi-client"
+name = "kabusapi-client"
 version = "1.5"
-description = "A client library for accessing kabuステーションAPI"
+description = "A client library for accessing kabu STATION API"
 authors = []
 readme = "README.md"
 packages = [
