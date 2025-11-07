@@ -28,22 +28,18 @@ jobs:
         run: |
           curl -o kabu_STATION_API.yaml https://kabucom.github.io/kabusapi/reference/kabu_STATION_API.yaml
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          node-version: '20'
+          python-version: '3.11'
 
-      - name: Install OpenAPI Generator
+      - name: Install openapi-python-client
         run: |
-          npm install -g @openapitools/openapi-generator-cli
+          pip install openapi-python-client
 
-      - name: Generate client
+      - name: Generate Python client
         run: |
-          openapi-generator-cli generate \
-            -i kabu_STATION_API.yaml \
-            -g typescript-axios \
-            -o ./generated-client \
-            --additional-properties=npmName=kabusapi-client,npmVersion=1.0.0,supportsES6=true
+          openapi-python-client generate --path kabu_STATION_API.yaml --output-path ./generated-client
 
       - name: Check for changes and create PR
         env:
