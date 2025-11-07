@@ -1,0 +1,75 @@
+name: Generate OpenAPI Client
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run daily at 9:00 AM JST (midnight UTC)
+    - cron: '0 0 * * *'
+
+jobs:
+  generate-client:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download OpenAPI specification
+        run: |
+          curl -o kabu_STATION_API.yaml https://kabucom.github.io/kabusapi/reference/kabu_STATION_API.yaml
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install OpenAPI Generator
+        run: |
+          npm install -g @openapitools/openapi-generator-cli
+
+      - name: Generate client
+        run: |
+          openapi-generator-cli generate \
+            -i kabu_STATION_API.yaml \
+            -g typescript-axios \
+            -o ./generated-client \
+            --additional-properties=npmName=kabusapi-client,npmVersion=1.0.0,supportsES6=true
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git add -A
+          if git diff --staged --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.check_changes.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'Update OpenAPI generated client'
+          title: 'Update OpenAPI Generated Client'
+          body: |
+            ## Summary
+            This PR updates the auto-generated client from the latest kabu STATION API OpenAPI specification.
+
+            ### Changes
+            - Updated client generated from: https://kabucom.github.io/kabusapi/reference/kabu_STATION_API.yaml
+            - Generation date: ${{ github.run_id }}
+
+            ### Test plan
+            - [ ] Review generated client code
+            - [ ] Verify API compatibility
+            - [ ] Run tests if available
+
+            🤖 Generated with [Claude Code](https://claude.com/claude-code)
+          branch: update-openapi-client-${{ github.run_number }}
+          delete-branch: true
+          labels: |
+            automated
+            openapi
