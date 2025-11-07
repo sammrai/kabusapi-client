@@ -10,6 +10,10 @@ on:
     # Run daily at 9:00 AM JST (midnight UTC)
     - cron: '0 0 * * *'
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   generate-client:
     runs-on: ubuntu-latest
