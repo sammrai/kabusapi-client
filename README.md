@@ -122,3 +122,20 @@ If you want to install this client into another project without publishing it (e
 1. If that project is not using Poetry:
     1. Build a wheel with `poetry build -f wheel`
     1. Install that wheel from the other project `pip install <path-to-wheel>`
+
+## Installation
+
+Install directly from GitHub:
+
+```bash
+# Using uv
+uv add git+https://github.com/sammrai/kabusapi-client.git
+
+# Using pip
+pip install git+https://github.com/sammrai/kabusapi-client.git
+```
+
+## Repository
+
+- GitHub: https://github.com/sammrai/kabusapi-client
+- Generated from: [kabu STATION API](https://kabucom.github.io/kabusapi/reference/)
