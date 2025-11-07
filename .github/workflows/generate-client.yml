@@ -42,11 +42,16 @@ jobs:
           # Remove old generated client if exists
           rm -rf kabusapi_client pyproject.toml README.md .gitignore
 
+          # Create config file to override package name
+          cat > config.yaml << 'EOF'
+          package_name_override: kabusapi_client
+          EOF
+
           # Generate client in temp directory with custom package name
           openapi-python-client generate \
             --path kabu_STATION_API.yaml \
             --output-path ./temp-client \
-            --meta=package_name_override:kabusapi_client
+            --config config.yaml
 
           # Move generated files to repository root
           mv temp-client/kabusapi_client ./
@@ -54,8 +59,8 @@ jobs:
           mv temp-client/README.md ./
           mv temp-client/.gitignore ./client.gitignore
 
-          # Clean up temp directory
-          rm -rf temp-client
+          # Clean up
+          rm -rf temp-client config.yaml
 
       - name: Check for changes and create PR
         env:
