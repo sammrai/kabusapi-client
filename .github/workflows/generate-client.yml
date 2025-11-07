@@ -59,6 +59,10 @@ jobs:
           mv temp-client/README.md ./
           mv temp-client/.gitignore ./client.gitignore
 
+          # Fix package name in pyproject.toml
+          sed -i 's/name = "kabu-ステーションapi-client"/name = "kabusapi-client"/' pyproject.toml
+          sed -i 's/A client library for accessing kabuステーションAPI/A client library for accessing kabu STATION API/' pyproject.toml
+
           # Add installation instructions to README
           {
             echo ""
