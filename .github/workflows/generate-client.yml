@@ -40,13 +40,16 @@ jobs:
       - name: Generate Python client
         run: |
           # Remove old generated client if exists
-          rm -rf kabu_ステーションapi_client pyproject.toml README.md .gitignore
+          rm -rf kabusapi_client pyproject.toml README.md .gitignore
 
-          # Generate client in temp directory
-          openapi-python-client generate --path kabu_STATION_API.yaml --output-path ./temp-client
+          # Generate client in temp directory with custom package name
+          openapi-python-client generate \
+            --path kabu_STATION_API.yaml \
+            --output-path ./temp-client \
+            --meta=package_name_override:kabusapi_client
 
           # Move generated files to repository root
-          mv temp-client/kabu_ステーションapi_client ./
+          mv temp-client/kabusapi_client ./
           mv temp-client/pyproject.toml ./
           mv temp-client/README.md ./
           mv temp-client/.gitignore ./client.gitignore
