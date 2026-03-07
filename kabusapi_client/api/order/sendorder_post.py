@@ -115,7 +115,7 @@ def sync_detailed(
 
     Args:
         x_api_key (str):
-        body (RequestSendOrder):  Example: {'Symbol': '9433', 'Exchange': 1, 'SecurityType': 1,
+        body (RequestSendOrder):  Example: {'Symbol': '9433', 'Exchange': 27, 'SecurityType': 1,
             'Side': '1', 'CashMargin': 3, 'MarginTradeType': 3, 'MarginPremiumUnit': 12.34,
             'DelivType': 2, 'AccountType': 4, 'Qty': 500, 'ClosePositions': [{'HoldID':
             'E20200702xxxxx', 'Qty': 500}], 'FrontOrderType': 30, 'ExpireDay': 20200903,
@@ -155,7 +155,7 @@ def sync(
 
     Args:
         x_api_key (str):
-        body (RequestSendOrder):  Example: {'Symbol': '9433', 'Exchange': 1, 'SecurityType': 1,
+        body (RequestSendOrder):  Example: {'Symbol': '9433', 'Exchange': 27, 'SecurityType': 1,
             'Side': '1', 'CashMargin': 3, 'MarginTradeType': 3, 'MarginPremiumUnit': 12.34,
             'DelivType': 2, 'AccountType': 4, 'Qty': 500, 'ClosePositions': [{'HoldID':
             'E20200702xxxxx', 'Qty': 500}], 'FrontOrderType': 30, 'ExpireDay': 20200903,
@@ -190,7 +190,7 @@ async def asyncio_detailed(
 
     Args:
         x_api_key (str):
-        body (RequestSendOrder):  Example: {'Symbol': '9433', 'Exchange': 1, 'SecurityType': 1,
+        body (RequestSendOrder):  Example: {'Symbol': '9433', 'Exchange': 27, 'SecurityType': 1,
             'Side': '1', 'CashMargin': 3, 'MarginTradeType': 3, 'MarginPremiumUnit': 12.34,
             'DelivType': 2, 'AccountType': 4, 'Qty': 500, 'ClosePositions': [{'HoldID':
             'E20200702xxxxx', 'Qty': 500}], 'FrontOrderType': 30, 'ExpireDay': 20200903,
@@ -228,7 +228,7 @@ async def asyncio(
 
     Args:
         x_api_key (str):
-        body (RequestSendOrder):  Example: {'Symbol': '9433', 'Exchange': 1, 'SecurityType': 1,
+        body (RequestSendOrder):  Example: {'Symbol': '9433', 'Exchange': 27, 'SecurityType': 1,
             'Side': '1', 'CashMargin': 3, 'MarginTradeType': 3, 'MarginPremiumUnit': 12.34,
             'DelivType': 2, 'AccountType': 4, 'Qty': 500, 'ClosePositions': [{'HoldID':
             'E20200702xxxxx', 'Qty': 500}], 'FrontOrderType': 30, 'ExpireDay': 20200903,
