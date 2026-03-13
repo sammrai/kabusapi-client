@@ -20,8 +20,8 @@ class OrdersSuccess:
     """
     Example:
         {'ID': '20220404A02N04738436', 'State': 5, 'OrderState': 5, 'OrdType': 1, 'RecvTime':
-            '2022-04-04T18:00:51.763683+09:00', 'Symbol': '8306', 'SymbolName': '三菱ＵＦＪフィナンシャル・グループ', 'Exchange': 1,
-            'ExchangeName': '東証プ', 'TimeInForce': 1, 'Price': 704.5, 'OrderQty': 1500, 'CumQty': 1500, 'Side': '1',
+            '2022-04-04T18:00:51.763683+09:00', 'Symbol': '8306', 'SymbolName': '三菱ＵＦＪフィナンシャル・グループ', 'Exchange': 27,
+            'ExchangeName': '東証＋プ', 'TimeInForce': 1, 'Price': 704.5, 'OrderQty': 1500, 'CumQty': 1500, 'Side': '1',
             'CashMargin': 2, 'AccountType': 4, 'DelivType': 2, 'ExpireDay': 20220404, 'MarginTradeType': 1, 'MarginPremium':
             None, 'Details': [{'SeqNum': 1, 'ID': '20220404A02N04738436', 'RecType': 1, 'ExchangeID':
             '00000000-0000-0000-0000-00000000', 'State': 3, 'TransactTime': '2022-04-04T18:00:51.763683+09:00', 'OrdType':
