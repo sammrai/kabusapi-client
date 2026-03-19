@@ -20,7 +20,7 @@ T = TypeVar("T", bound="RequestSendOrder")
 class RequestSendOrder:
     """
     Example:
-        {'Symbol': '9433', 'Exchange': 1, 'SecurityType': 1, 'Side': '1', 'CashMargin': 3, 'MarginTradeType': 3,
+        {'Symbol': '9433', 'Exchange': 27, 'SecurityType': 1, 'Side': '1', 'CashMargin': 3, 'MarginTradeType': 3,
             'MarginPremiumUnit': 12.34, 'DelivType': 2, 'AccountType': 4, 'Qty': 500, 'ClosePositions': [{'HoldID':
             'E20200702xxxxx', 'Qty': 500}], 'FrontOrderType': 30, 'ExpireDay': 20200903, 'ReverseLimitOrder': {'TriggerSec':
             1, 'TriggerPrice': 40000, 'UnderOver': 2, 'AfterHitOrderType': 1, 'AfterHitPrice': 0}}
@@ -38,7 +38,7 @@ class RequestSendOrder:
               <tbody>
                   <tr>
                       <td>1</td>
-                      <td>東証</td>
+                      <td>東証※</td>
                   </tr>
                   <tr>
                       <td>3</td>
@@ -62,6 +62,11 @@ class RequestSendOrder:
                   </tr>
               </tbody>
             </table>
+
+            ※SORまたは、東証+がメンテナンス中は現物のみ東証への指定が可能です。<br>
+            通常時に東証を指定しての新規発注はできません。<br>
+            ※信用建玉の返済注文につきましては、返済期限までは東証で返済可能です。<br>
+            東証で保有している建玉をSORまたは東証+では返済できませんのでご注意ください。
         security_type (int): 商品種別
             <table>
               <thead>

@@ -49,12 +49,24 @@ class RegulationsResponseRegulationsInfoItem:
                   <td>SOR</td>
                 </tr>
                 <tr>
-                  <td>10</td>
-                  <td>CXJ</td>
+                  <td>21</td>
+                  <td>ジャパンネクスト J-Market</td>
                 </tr>
                 <tr>
-                  <td>21</td>
-                  <td>JNX</td>
+                  <td>27</td>
+                  <td>MS東証</td>
+                </tr>
+                <tr>
+                  <td>36</td>
+                  <td>大阪デジタルエクスチェンジ</td>
+                </tr>
+                <tr>
+                  <td>37</td>
+                  <td>Japan Alternative Market</td>
+                </tr>
+                <tr>
+                  <td>38</td>
+                  <td>ジャパンネクスト X-Market</td>
                 </tr>
               </tbody>
             </table>
