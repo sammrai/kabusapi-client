@@ -1,12 +1,13 @@
 from http import HTTPStatus
 from typing import Any
+from urllib.parse import quote
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.error_response import ErrorResponse
-from ...models.wallet_future_success import WalletFutureSuccess
+from ...models.wallet_margin_success import WalletMarginSuccess
 from ...types import Response
 
 
@@ -20,7 +21,9 @@ def _get_kwargs(
 
     _kwargs: dict[str, Any] = {
         "method": "get",
-        "url": f"/wallet/future/{symbol}",
+        "url": "/wallet/margin/{symbol}".format(
+            symbol=quote(str(symbol), safe=""),
+        ),
     }
 
     _kwargs["headers"] = headers
@@ -29,9 +32,9 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> ErrorResponse | WalletFutureSuccess | None:
+) -> ErrorResponse | WalletMarginSuccess | None:
     if response.status_code == 200:
-        response_200 = WalletFutureSuccess.from_dict(response.json())
+        response_200 = WalletMarginSuccess.from_dict(response.json())
 
         return response_200
 
@@ -88,7 +91,7 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[ErrorResponse | WalletFutureSuccess]:
+) -> Response[ErrorResponse | WalletMarginSuccess]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -102,10 +105,10 @@ def sync_detailed(
     *,
     client: AuthenticatedClient | Client,
     x_api_key: str,
-) -> Response[ErrorResponse | WalletFutureSuccess]:
-    """取引余力（先物）（銘柄指定）
+) -> Response[ErrorResponse | WalletMarginSuccess]:
+    """取引余力（信用）（銘柄指定）
 
-     指定した銘柄の取引余力（先物）を取得します
+     指定した銘柄の取引余力（信用）を取得します
 
     Args:
         symbol (str):
@@ -116,7 +119,7 @@ def sync_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ErrorResponse | WalletFutureSuccess]
+        Response[ErrorResponse | WalletMarginSuccess]
     """
 
     kwargs = _get_kwargs(
@@ -136,10 +139,10 @@ def sync(
     *,
     client: AuthenticatedClient | Client,
     x_api_key: str,
-) -> ErrorResponse | WalletFutureSuccess | None:
-    """取引余力（先物）（銘柄指定）
+) -> ErrorResponse | WalletMarginSuccess | None:
+    """取引余力（信用）（銘柄指定）
 
-     指定した銘柄の取引余力（先物）を取得します
+     指定した銘柄の取引余力（信用）を取得します
 
     Args:
         symbol (str):
@@ -150,7 +153,7 @@ def sync(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ErrorResponse | WalletFutureSuccess
+        ErrorResponse | WalletMarginSuccess
     """
 
     return sync_detailed(
@@ -165,10 +168,10 @@ async def asyncio_detailed(
     *,
     client: AuthenticatedClient | Client,
     x_api_key: str,
-) -> Response[ErrorResponse | WalletFutureSuccess]:
-    """取引余力（先物）（銘柄指定）
+) -> Response[ErrorResponse | WalletMarginSuccess]:
+    """取引余力（信用）（銘柄指定）
 
-     指定した銘柄の取引余力（先物）を取得します
+     指定した銘柄の取引余力（信用）を取得します
 
     Args:
         symbol (str):
@@ -179,7 +182,7 @@ async def asyncio_detailed(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ErrorResponse | WalletFutureSuccess]
+        Response[ErrorResponse | WalletMarginSuccess]
     """
 
     kwargs = _get_kwargs(
@@ -197,10 +200,10 @@ async def asyncio(
     *,
     client: AuthenticatedClient | Client,
     x_api_key: str,
-) -> ErrorResponse | WalletFutureSuccess | None:
-    """取引余力（先物）（銘柄指定）
+) -> ErrorResponse | WalletMarginSuccess | None:
+    """取引余力（信用）（銘柄指定）
 
-     指定した銘柄の取引余力（先物）を取得します
+     指定した銘柄の取引余力（信用）を取得します
 
     Args:
         symbol (str):
@@ -211,7 +214,7 @@ async def asyncio(
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ErrorResponse | WalletFutureSuccess
+        ErrorResponse | WalletMarginSuccess
     """
 
     return (
