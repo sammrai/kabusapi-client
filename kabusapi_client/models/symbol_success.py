@@ -474,6 +474,7 @@ class SymbolSuccess:
         kc_margin_sell (bool | Unset): 一般信用売建フラグ<br>※trueのとき、一般信用(長期)または一般信用(デイトレ)が売建可能<br>※株式銘柄の場合のみ
         margin_buy (bool | Unset): 制度信用買建フラグ<br>※trueのとき制度信用買建可能<br>※株式銘柄の場合のみ
         margin_sell (bool | Unset): 制度信用売建フラグ<br>※trueのとき制度信用売建可能<br>※株式銘柄の場合のみ
+        per_symbol_limit (float | Unset): 銘柄あたり建玉上限額<br>※株式銘柄の場合のみ<br>※銘柄あたり建玉対象外銘柄（ETF/REIT）の場合、null
         upper_limit (float | Unset): 値幅上限<br>※株式・先物・オプション銘柄の場合のみ
         lower_limit (float | Unset): 値幅下限<br>※株式・先物・オプション銘柄の場合のみ
         underlyer (str | Unset): 原資産コード<br>※先物・オプション銘柄の場合のみ
@@ -564,6 +565,7 @@ class SymbolSuccess:
     kc_margin_sell: bool | Unset = UNSET
     margin_buy: bool | Unset = UNSET
     margin_sell: bool | Unset = UNSET
+    per_symbol_limit: float | Unset = UNSET
     upper_limit: float | Unset = UNSET
     lower_limit: float | Unset = UNSET
     underlyer: str | Unset = UNSET
@@ -605,6 +607,8 @@ class SymbolSuccess:
         margin_buy = self.margin_buy
 
         margin_sell = self.margin_sell
+
+        per_symbol_limit = self.per_symbol_limit
 
         upper_limit = self.upper_limit
 
@@ -657,6 +661,8 @@ class SymbolSuccess:
             field_dict["MarginBuy"] = margin_buy
         if margin_sell is not UNSET:
             field_dict["MarginSell"] = margin_sell
+        if per_symbol_limit is not UNSET:
+            field_dict["PerSymbolLimit"] = per_symbol_limit
         if upper_limit is not UNSET:
             field_dict["UpperLimit"] = upper_limit
         if lower_limit is not UNSET:
@@ -711,6 +717,8 @@ class SymbolSuccess:
 
         margin_sell = d.pop("MarginSell", UNSET)
 
+        per_symbol_limit = d.pop("PerSymbolLimit", UNSET)
+
         upper_limit = d.pop("UpperLimit", UNSET)
 
         lower_limit = d.pop("LowerLimit", UNSET)
@@ -745,6 +753,7 @@ class SymbolSuccess:
             kc_margin_sell=kc_margin_sell,
             margin_buy=margin_buy,
             margin_sell=margin_sell,
+            per_symbol_limit=per_symbol_limit,
             upper_limit=upper_limit,
             lower_limit=lower_limit,
             underlyer=underlyer,
