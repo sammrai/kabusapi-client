@@ -19,12 +19,16 @@ class WalletMarginSuccess:
         depositkeep_rate (float | Unset): 保証金維持率<br>※銘柄指定の場合のみ<br>※銘柄が指定されなかった場合、0.0を返す。
         consignment_deposit_rate (float | Unset): 委託保証金率<br>※銘柄指定の場合のみ。<br>※銘柄が指定されなかった場合、Noneを返す。
         cash_of_consignment_deposit_rate (float | Unset): 現金委託保証金率<br>※銘柄指定の場合のみ。<br>※銘柄が指定されなかった場合、Noneを返す。
+        maximum_sell_open_amount_per_symbol (float | Unset): 銘柄あたり建玉可能額（売）<br>※銘柄指定の場合のみ。<br>※銘柄あたり建玉上限対象外の場合、nullを返す。
+        maximum_buy_open_amount_per_symbol (float | Unset): 銘柄あたり建玉可能額（買）<br>※銘柄指定の場合のみ。<br>※銘柄あたり建玉上限対象外の場合、nullを返す。
     """
 
     margin_account_wallet: float | Unset = UNSET
     depositkeep_rate: float | Unset = UNSET
     consignment_deposit_rate: float | Unset = UNSET
     cash_of_consignment_deposit_rate: float | Unset = UNSET
+    maximum_sell_open_amount_per_symbol: float | Unset = UNSET
+    maximum_buy_open_amount_per_symbol: float | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
@@ -35,6 +39,10 @@ class WalletMarginSuccess:
         consignment_deposit_rate = self.consignment_deposit_rate
 
         cash_of_consignment_deposit_rate = self.cash_of_consignment_deposit_rate
+
+        maximum_sell_open_amount_per_symbol = self.maximum_sell_open_amount_per_symbol
+
+        maximum_buy_open_amount_per_symbol = self.maximum_buy_open_amount_per_symbol
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -47,6 +55,10 @@ class WalletMarginSuccess:
             field_dict["ConsignmentDepositRate"] = consignment_deposit_rate
         if cash_of_consignment_deposit_rate is not UNSET:
             field_dict["CashOfConsignmentDepositRate"] = cash_of_consignment_deposit_rate
+        if maximum_sell_open_amount_per_symbol is not UNSET:
+            field_dict["MaximumSellOpenAmountPerSymbol"] = maximum_sell_open_amount_per_symbol
+        if maximum_buy_open_amount_per_symbol is not UNSET:
+            field_dict["MaximumBuyOpenAmountPerSymbol"] = maximum_buy_open_amount_per_symbol
 
         return field_dict
 
@@ -61,11 +73,17 @@ class WalletMarginSuccess:
 
         cash_of_consignment_deposit_rate = d.pop("CashOfConsignmentDepositRate", UNSET)
 
+        maximum_sell_open_amount_per_symbol = d.pop("MaximumSellOpenAmountPerSymbol", UNSET)
+
+        maximum_buy_open_amount_per_symbol = d.pop("MaximumBuyOpenAmountPerSymbol", UNSET)
+
         wallet_margin_success = cls(
             margin_account_wallet=margin_account_wallet,
             depositkeep_rate=depositkeep_rate,
             consignment_deposit_rate=consignment_deposit_rate,
             cash_of_consignment_deposit_rate=cash_of_consignment_deposit_rate,
+            maximum_sell_open_amount_per_symbol=maximum_sell_open_amount_per_symbol,
+            maximum_buy_open_amount_per_symbol=maximum_buy_open_amount_per_symbol,
         )
 
         wallet_margin_success.additional_properties = d
