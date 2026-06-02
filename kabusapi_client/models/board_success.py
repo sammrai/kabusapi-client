@@ -6,7 +6,6 @@ from typing import TYPE_CHECKING, Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
-from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
 
@@ -942,7 +941,7 @@ class BoardSuccess:
         if isinstance(_current_price_time, Unset):
             current_price_time = UNSET
         else:
-            current_price_time = isoparse(_current_price_time)
+            current_price_time = datetime.datetime.fromisoformat(_current_price_time)
 
         current_price_change_status = d.pop("CurrentPriceChangeStatus", UNSET)
 
@@ -957,7 +956,7 @@ class BoardSuccess:
         if isinstance(_previous_close_time, Unset):
             previous_close_time = UNSET
         else:
-            previous_close_time = isoparse(_previous_close_time)
+            previous_close_time = datetime.datetime.fromisoformat(_previous_close_time)
 
         change_previous_close = d.pop("ChangePreviousClose", UNSET)
 
@@ -970,7 +969,7 @@ class BoardSuccess:
         if isinstance(_opening_price_time, Unset):
             opening_price_time = UNSET
         else:
-            opening_price_time = isoparse(_opening_price_time)
+            opening_price_time = datetime.datetime.fromisoformat(_opening_price_time)
 
         high_price = d.pop("HighPrice", UNSET)
 
@@ -979,7 +978,7 @@ class BoardSuccess:
         if isinstance(_high_price_time, Unset):
             high_price_time = UNSET
         else:
-            high_price_time = isoparse(_high_price_time)
+            high_price_time = datetime.datetime.fromisoformat(_high_price_time)
 
         low_price = d.pop("LowPrice", UNSET)
 
@@ -988,7 +987,7 @@ class BoardSuccess:
         if isinstance(_low_price_time, Unset):
             low_price_time = UNSET
         else:
-            low_price_time = isoparse(_low_price_time)
+            low_price_time = datetime.datetime.fromisoformat(_low_price_time)
 
         trading_volume = d.pop("TradingVolume", UNSET)
 
@@ -997,7 +996,7 @@ class BoardSuccess:
         if isinstance(_trading_volume_time, Unset):
             trading_volume_time = UNSET
         else:
-            trading_volume_time = isoparse(_trading_volume_time)
+            trading_volume_time = datetime.datetime.fromisoformat(_trading_volume_time)
 
         vwap = d.pop("VWAP", UNSET)
 
@@ -1012,7 +1011,7 @@ class BoardSuccess:
         if isinstance(_bid_time, Unset):
             bid_time = UNSET
         else:
-            bid_time = isoparse(_bid_time)
+            bid_time = datetime.datetime.fromisoformat(_bid_time)
 
         bid_sign = d.pop("BidSign", UNSET)
 
@@ -1097,7 +1096,7 @@ class BoardSuccess:
         if isinstance(_ask_time, Unset):
             ask_time = UNSET
         else:
-            ask_time = isoparse(_ask_time)
+            ask_time = datetime.datetime.fromisoformat(_ask_time)
 
         ask_sign = d.pop("AskSign", UNSET)
 
