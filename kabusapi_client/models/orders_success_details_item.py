@@ -6,7 +6,6 @@ from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
-from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
 
@@ -256,7 +255,7 @@ class OrdersSuccessDetailsItem:
         if isinstance(_execution_day, Unset):
             execution_day = UNSET
         else:
-            execution_day = isoparse(_execution_day)
+            execution_day = datetime.datetime.fromisoformat(_execution_day)
 
         deliv_day = d.pop("DelivDay", UNSET)
 
