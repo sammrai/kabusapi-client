@@ -6,7 +6,6 @@ from typing import Any, TypeVar
 
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
-from dateutil.parser import isoparse
 
 from ..types import UNSET, Unset
 
@@ -121,7 +120,7 @@ class BoardSuccessBuy1:
         if isinstance(_time, Unset):
             time = UNSET
         else:
-            time = isoparse(_time)
+            time = datetime.datetime.fromisoformat(_time)
 
         sign = d.pop("Sign", UNSET)
 
