@@ -110,9 +110,6 @@ def sync_detailed(
 ) -> Response[ErrorResponse | OrderSuccess]:
     """注文発注（現物・信用）
 
-     注文を発注します。<br>
-    同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
-
     Args:
         x_api_key (str):
         body (RequestSendOrder):  Example: {'Symbol': '9433', 'Exchange': 27, 'SecurityType': 1,
@@ -150,9 +147,6 @@ def sync(
 ) -> ErrorResponse | OrderSuccess | None:
     """注文発注（現物・信用）
 
-     注文を発注します。<br>
-    同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
-
     Args:
         x_api_key (str):
         body (RequestSendOrder):  Example: {'Symbol': '9433', 'Exchange': 27, 'SecurityType': 1,
@@ -184,9 +178,6 @@ async def asyncio_detailed(
     x_api_key: str,
 ) -> Response[ErrorResponse | OrderSuccess]:
     """注文発注（現物・信用）
-
-     注文を発注します。<br>
-    同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
 
     Args:
         x_api_key (str):
@@ -222,9 +213,6 @@ async def asyncio(
     x_api_key: str,
 ) -> ErrorResponse | OrderSuccess | None:
     """注文発注（現物・信用）
-
-     注文を発注します。<br>
-    同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
 
     Args:
         x_api_key (str):
