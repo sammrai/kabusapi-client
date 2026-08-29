@@ -110,9 +110,6 @@ def sync_detailed(
 ) -> Response[ErrorResponse | OrderSuccess]:
     """注文発注（オプション）
 
-     オプション銘柄の注文を発注します。<br>
-    同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
-
     Args:
         x_api_key (str):
         body (RequestSendOrderDerivOption):  Example: {'Symbol': '165120019', 'Exchange': 23,
@@ -149,9 +146,6 @@ def sync(
 ) -> ErrorResponse | OrderSuccess | None:
     """注文発注（オプション）
 
-     オプション銘柄の注文を発注します。<br>
-    同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
-
     Args:
         x_api_key (str):
         body (RequestSendOrderDerivOption):  Example: {'Symbol': '165120019', 'Exchange': 23,
@@ -182,9 +176,6 @@ async def asyncio_detailed(
     x_api_key: str,
 ) -> Response[ErrorResponse | OrderSuccess]:
     """注文発注（オプション）
-
-     オプション銘柄の注文を発注します。<br>
-    同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
 
     Args:
         x_api_key (str):
@@ -219,9 +210,6 @@ async def asyncio(
     x_api_key: str,
 ) -> ErrorResponse | OrderSuccess | None:
     """注文発注（オプション）
-
-     オプション銘柄の注文を発注します。<br>
-    同一の銘柄に対しての注文は同時に5件ほどを上限としてご利用ください。
 
     Args:
         x_api_key (str):
