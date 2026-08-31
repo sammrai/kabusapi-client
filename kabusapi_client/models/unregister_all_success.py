@@ -20,7 +20,7 @@ class UnregisterAllSuccess:
     """
     Attributes:
         regist_list (UnregisterAllSuccessRegistList | Unset):
-            現在登録されている銘柄のリスト<br>※銘柄登録解除が正常に行われれば、空リストを返します。<br>　登録解除でエラー等が発生した場合、現在登録されている銘柄のリストを返します
+            現在登録されている銘柄のリスト<br>※銘柄登録解除が正常に行われれば、空リストを返します。<br>　登録解除でエラー等が発生した場合、現在登録されている銘柄のリストを返します Example: [].
     """
 
     regist_list: UnregisterAllSuccessRegistList | Unset = UNSET
@@ -41,7 +41,7 @@ class UnregisterAllSuccess:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.unregister_all_success_regist_list import UnregisterAllSuccessRegistList
+        from ..models.unregister_all_success_regist_list import UnregisterAllSuccessRegistList  # noqa: PLC0415
 
         d = dict(src_dict)
         _regist_list = d.pop("RegistList", UNSET)

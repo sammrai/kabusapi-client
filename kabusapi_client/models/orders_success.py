@@ -442,7 +442,7 @@ class OrdersSuccess:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.orders_success_details_item import OrdersSuccessDetailsItem
+        from ..models.orders_success_details_item import OrdersSuccessDetailsItem  # noqa: PLC0415
 
         d = dict(src_dict)
         id = d.pop("ID", UNSET)

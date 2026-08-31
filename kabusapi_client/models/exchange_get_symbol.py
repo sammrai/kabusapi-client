@@ -1,7 +1,7 @@
-from enum import Enum
+from enum import StrEnum
 
 
-class ExchangeGetSymbol(str, Enum):
+class ExchangeGetSymbol(StrEnum):
     AUDJPY = "audjpy"
     AUDUSD = "audusd"
     CADJPY = "cadjpy"
