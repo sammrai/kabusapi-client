@@ -43,7 +43,7 @@ class RequestRegister:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.request_register_symbols_item import RequestRegisterSymbolsItem
+        from ..models.request_register_symbols_item import RequestRegisterSymbolsItem  # noqa: PLC0415
 
         d = dict(src_dict)
         _symbols = d.pop("Symbols", UNSET)
