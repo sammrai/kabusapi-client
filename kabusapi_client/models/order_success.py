@@ -15,7 +15,7 @@ T = TypeVar("T", bound="OrderSuccess")
 class OrderSuccess:
     """
     Attributes:
-        result (int | Unset): 結果コード<br>0が成功。それ以外はエラーコード。
+        result (int | Unset): 結果コード<br>0が成功。それ以外はエラーコード。 Example: 0.
         order_id (str | Unset): 受付注文番号 Example: 20200529A01N06848002.
     """
 
