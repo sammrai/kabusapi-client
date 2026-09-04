@@ -44,7 +44,7 @@ class RequestUnregister:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.request_unregister_symbols_item import RequestUnregisterSymbolsItem
+        from ..models.request_unregister_symbols_item import RequestUnregisterSymbolsItem  # noqa: PLC0415
 
         d = dict(src_dict)
         _symbols = d.pop("Symbols", UNSET)
