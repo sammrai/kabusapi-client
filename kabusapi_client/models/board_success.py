@@ -904,26 +904,26 @@ class BoardSuccess:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.board_success_buy_1 import BoardSuccessBuy1
-        from ..models.board_success_buy_2 import BoardSuccessBuy2
-        from ..models.board_success_buy_3 import BoardSuccessBuy3
-        from ..models.board_success_buy_4 import BoardSuccessBuy4
-        from ..models.board_success_buy_5 import BoardSuccessBuy5
-        from ..models.board_success_buy_6 import BoardSuccessBuy6
-        from ..models.board_success_buy_7 import BoardSuccessBuy7
-        from ..models.board_success_buy_8 import BoardSuccessBuy8
-        from ..models.board_success_buy_9 import BoardSuccessBuy9
-        from ..models.board_success_buy_10 import BoardSuccessBuy10
-        from ..models.board_success_sell_1 import BoardSuccessSell1
-        from ..models.board_success_sell_2 import BoardSuccessSell2
-        from ..models.board_success_sell_3 import BoardSuccessSell3
-        from ..models.board_success_sell_4 import BoardSuccessSell4
-        from ..models.board_success_sell_5 import BoardSuccessSell5
-        from ..models.board_success_sell_6 import BoardSuccessSell6
-        from ..models.board_success_sell_7 import BoardSuccessSell7
-        from ..models.board_success_sell_8 import BoardSuccessSell8
-        from ..models.board_success_sell_9 import BoardSuccessSell9
-        from ..models.board_success_sell_10 import BoardSuccessSell10
+        from ..models.board_success_buy_1 import BoardSuccessBuy1  # noqa: PLC0415
+        from ..models.board_success_buy_2 import BoardSuccessBuy2  # noqa: PLC0415
+        from ..models.board_success_buy_3 import BoardSuccessBuy3  # noqa: PLC0415
+        from ..models.board_success_buy_4 import BoardSuccessBuy4  # noqa: PLC0415
+        from ..models.board_success_buy_5 import BoardSuccessBuy5  # noqa: PLC0415
+        from ..models.board_success_buy_6 import BoardSuccessBuy6  # noqa: PLC0415
+        from ..models.board_success_buy_7 import BoardSuccessBuy7  # noqa: PLC0415
+        from ..models.board_success_buy_8 import BoardSuccessBuy8  # noqa: PLC0415
+        from ..models.board_success_buy_9 import BoardSuccessBuy9  # noqa: PLC0415
+        from ..models.board_success_buy_10 import BoardSuccessBuy10  # noqa: PLC0415
+        from ..models.board_success_sell_1 import BoardSuccessSell1  # noqa: PLC0415
+        from ..models.board_success_sell_2 import BoardSuccessSell2  # noqa: PLC0415
+        from ..models.board_success_sell_3 import BoardSuccessSell3  # noqa: PLC0415
+        from ..models.board_success_sell_4 import BoardSuccessSell4  # noqa: PLC0415
+        from ..models.board_success_sell_5 import BoardSuccessSell5  # noqa: PLC0415
+        from ..models.board_success_sell_6 import BoardSuccessSell6  # noqa: PLC0415
+        from ..models.board_success_sell_7 import BoardSuccessSell7  # noqa: PLC0415
+        from ..models.board_success_sell_8 import BoardSuccessSell8  # noqa: PLC0415
+        from ..models.board_success_sell_9 import BoardSuccessSell9  # noqa: PLC0415
+        from ..models.board_success_sell_10 import BoardSuccessSell10  # noqa: PLC0415
 
         d = dict(src_dict)
         symbol = d.pop("Symbol", UNSET)
