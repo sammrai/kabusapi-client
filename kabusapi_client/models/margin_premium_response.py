@@ -60,8 +60,8 @@ class MarginPremiumResponse:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.margin_premium_response_day_trade import MarginPremiumResponseDayTrade
-        from ..models.margin_premium_response_general_margin import MarginPremiumResponseGeneralMargin
+        from ..models.margin_premium_response_day_trade import MarginPremiumResponseDayTrade  # noqa: PLC0415
+        from ..models.margin_premium_response_general_margin import MarginPremiumResponseGeneralMargin  # noqa: PLC0415
 
         d = dict(src_dict)
         symbol = d.pop("Symbol", UNSET)
