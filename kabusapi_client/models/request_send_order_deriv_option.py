@@ -369,9 +369,9 @@ class RequestSendOrderDerivOption:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.positions_deriv import PositionsDeriv
+        from ..models.positions_deriv import PositionsDeriv  # noqa: PLC0415
         from ..models.request_send_order_deriv_option_reverse_limit_order import (
-            RequestSendOrderDerivOptionReverseLimitOrder,
+            RequestSendOrderDerivOptionReverseLimitOrder,  # noqa: PLC0415
         )
 
         d = dict(src_dict)

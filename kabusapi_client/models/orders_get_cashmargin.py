@@ -1,7 +1,7 @@
-from enum import Enum
+from enum import StrEnum
 
 
-class OrdersGetCashmargin(str, Enum):
+class OrdersGetCashmargin(StrEnum):
     VALUE_0 = "2"
     VALUE_1 = "3"
 
