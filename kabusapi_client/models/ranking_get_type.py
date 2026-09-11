@@ -1,7 +1,7 @@
-from enum import Enum
+from enum import StrEnum
 
 
-class RankingGetType(str, Enum):
+class RankingGetType(StrEnum):
     VALUE_0 = "1"
     VALUE_1 = "2"
     VALUE_10 = "11"
