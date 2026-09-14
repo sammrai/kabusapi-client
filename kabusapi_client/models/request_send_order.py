@@ -470,8 +470,8 @@ class RequestSendOrder:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.positions import Positions
-        from ..models.request_send_order_reverse_limit_order import RequestSendOrderReverseLimitOrder
+        from ..models.positions import Positions  # noqa: PLC0415
+        from ..models.request_send_order_reverse_limit_order import RequestSendOrderReverseLimitOrder  # noqa: PLC0415
 
         d = dict(src_dict)
         symbol = d.pop("Symbol")
