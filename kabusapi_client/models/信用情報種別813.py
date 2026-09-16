@@ -63,7 +63,7 @@ class 信用情報種別813:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.信用情報種別813_ranking_item import 信用情報種別813RankingItem
+        from ..models.信用情報種別813_ranking_item import 信用情報種別813RankingItem  # noqa: PLC0415
 
         d = dict(src_dict)
         type_ = d.pop("Type", UNSET)
