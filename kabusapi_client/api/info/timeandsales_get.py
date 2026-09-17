@@ -1,32 +1,30 @@
 from http import HTTPStatus
 from typing import Any
+from urllib.parse import quote
 
 import httpx
 
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.error_response import ErrorResponse
-from ...models.order_success import OrderSuccess
-from ...models.request_send_order_deriv_future import RequestSendOrderDerivFuture
+from ...models.time_and_sales_response import TimeAndSalesResponse
 from ...types import Response
 
 
 def _get_kwargs(
+    symbol: str,
     *,
-    body: RequestSendOrderDerivFuture,
     x_api_key: str,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
     headers["X-API-KEY"] = x_api_key
 
     _kwargs: dict[str, Any] = {
-        "method": "post",
-        "url": "/sendorder/future",
+        "method": "get",
+        "url": "/timeandsales/{symbol}".format(
+            symbol=quote(str(symbol), safe=""),
+        ),
     }
-
-    _kwargs["json"] = body.to_dict()
-
-    headers["Content-Type"] = "application/json"
 
     _kwargs["headers"] = headers
     return _kwargs
@@ -34,9 +32,9 @@ def _get_kwargs(
 
 def _parse_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> ErrorResponse | OrderSuccess | None:
+) -> ErrorResponse | TimeAndSalesResponse | None:
     if response.status_code == 200:
-        response_200 = OrderSuccess.from_dict(response.json())
+        response_200 = TimeAndSalesResponse.from_dict(response.json())
 
         return response_200
 
@@ -93,7 +91,7 @@ def _parse_response(
 
 def _build_response(
     *, client: AuthenticatedClient | Client, response: httpx.Response
-) -> Response[ErrorResponse | OrderSuccess]:
+) -> Response[ErrorResponse | TimeAndSalesResponse]:
     return Response(
         status_code=HTTPStatus(response.status_code),
         content=response.content,
@@ -103,31 +101,29 @@ def _build_response(
 
 
 def sync_detailed(
+    symbol: str,
     *,
     client: AuthenticatedClient | Client,
-    body: RequestSendOrderDerivFuture,
     x_api_key: str,
-) -> Response[ErrorResponse | OrderSuccess]:
-    """注文発注（先物）
+) -> Response[ErrorResponse | TimeAndSalesResponse]:
+    """歩み値取得
+
+     指定した銘柄の歩み値情報を取得するAPI<br>歩み値のリクエストは秒間2件の流用制限を設けています。
 
     Args:
+        symbol (str):
         x_api_key (str):
-        body (RequestSendOrderDerivFuture):  Example: {'Symbol': '165120019', 'Exchange': 23,
-            'TradeType': 2, 'TimeInForce': 2, 'Side': '1', 'Qty': 1, 'ClosePositions': [{'HoldID':
-            'E20200903xxxxx', 'Qty': 1}], 'FrontOrderType': 30, 'ExpireDay': 20200903,
-            'ReverseLimitOrder': {'TriggerPrice': 100, 'UnderOver': 1, 'AfterHitOrderType': 1,
-            'AfterHitPrice': 0}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ErrorResponse | OrderSuccess]
+        Response[ErrorResponse | TimeAndSalesResponse]
     """
 
     kwargs = _get_kwargs(
-        body=body,
+        symbol=symbol,
         x_api_key=x_api_key,
     )
 
@@ -139,62 +135,58 @@ def sync_detailed(
 
 
 def sync(
+    symbol: str,
     *,
     client: AuthenticatedClient | Client,
-    body: RequestSendOrderDerivFuture,
     x_api_key: str,
-) -> ErrorResponse | OrderSuccess | None:
-    """注文発注（先物）
+) -> ErrorResponse | TimeAndSalesResponse | None:
+    """歩み値取得
+
+     指定した銘柄の歩み値情報を取得するAPI<br>歩み値のリクエストは秒間2件の流用制限を設けています。
 
     Args:
+        symbol (str):
         x_api_key (str):
-        body (RequestSendOrderDerivFuture):  Example: {'Symbol': '165120019', 'Exchange': 23,
-            'TradeType': 2, 'TimeInForce': 2, 'Side': '1', 'Qty': 1, 'ClosePositions': [{'HoldID':
-            'E20200903xxxxx', 'Qty': 1}], 'FrontOrderType': 30, 'ExpireDay': 20200903,
-            'ReverseLimitOrder': {'TriggerPrice': 100, 'UnderOver': 1, 'AfterHitOrderType': 1,
-            'AfterHitPrice': 0}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ErrorResponse | OrderSuccess
+        ErrorResponse | TimeAndSalesResponse
     """
 
     return sync_detailed(
+        symbol=symbol,
         client=client,
-        body=body,
         x_api_key=x_api_key,
     ).parsed
 
 
 async def asyncio_detailed(
+    symbol: str,
     *,
     client: AuthenticatedClient | Client,
-    body: RequestSendOrderDerivFuture,
     x_api_key: str,
-) -> Response[ErrorResponse | OrderSuccess]:
-    """注文発注（先物）
+) -> Response[ErrorResponse | TimeAndSalesResponse]:
+    """歩み値取得
+
+     指定した銘柄の歩み値情報を取得するAPI<br>歩み値のリクエストは秒間2件の流用制限を設けています。
 
     Args:
+        symbol (str):
         x_api_key (str):
-        body (RequestSendOrderDerivFuture):  Example: {'Symbol': '165120019', 'Exchange': 23,
-            'TradeType': 2, 'TimeInForce': 2, 'Side': '1', 'Qty': 1, 'ClosePositions': [{'HoldID':
-            'E20200903xxxxx', 'Qty': 1}], 'FrontOrderType': 30, 'ExpireDay': 20200903,
-            'ReverseLimitOrder': {'TriggerPrice': 100, 'UnderOver': 1, 'AfterHitOrderType': 1,
-            'AfterHitPrice': 0}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        Response[ErrorResponse | OrderSuccess]
+        Response[ErrorResponse | TimeAndSalesResponse]
     """
 
     kwargs = _get_kwargs(
-        body=body,
+        symbol=symbol,
         x_api_key=x_api_key,
     )
 
@@ -204,33 +196,31 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    symbol: str,
     *,
     client: AuthenticatedClient | Client,
-    body: RequestSendOrderDerivFuture,
     x_api_key: str,
-) -> ErrorResponse | OrderSuccess | None:
-    """注文発注（先物）
+) -> ErrorResponse | TimeAndSalesResponse | None:
+    """歩み値取得
+
+     指定した銘柄の歩み値情報を取得するAPI<br>歩み値のリクエストは秒間2件の流用制限を設けています。
 
     Args:
+        symbol (str):
         x_api_key (str):
-        body (RequestSendOrderDerivFuture):  Example: {'Symbol': '165120019', 'Exchange': 23,
-            'TradeType': 2, 'TimeInForce': 2, 'Side': '1', 'Qty': 1, 'ClosePositions': [{'HoldID':
-            'E20200903xxxxx', 'Qty': 1}], 'FrontOrderType': 30, 'ExpireDay': 20200903,
-            'ReverseLimitOrder': {'TriggerPrice': 100, 'UnderOver': 1, 'AfterHitOrderType': 1,
-            'AfterHitPrice': 0}}.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
         httpx.TimeoutException: If the request takes longer than Client.timeout.
 
     Returns:
-        ErrorResponse | OrderSuccess
+        ErrorResponse | TimeAndSalesResponse
     """
 
     return (
         await asyncio_detailed(
+            symbol=symbol,
             client=client,
-            body=body,
             x_api_key=x_api_key,
         )
     ).parsed

@@ -11,7 +11,12 @@ T = TypeVar("T", bound="UnregisterAllSuccessRegistList")
 
 @_attrs_define
 class UnregisterAllSuccessRegistList:
-    """現在登録されている銘柄のリスト<br>※銘柄登録解除が正常に行われれば、空リストを返します。<br>　登録解除でエラー等が発生した場合、現在登録されている銘柄のリストを返します"""
+    """現在登録されている銘柄のリスト<br>※銘柄登録解除が正常に行われれば、空リストを返します。<br>　登録解除でエラー等が発生した場合、現在登録されている銘柄のリストを返します
+
+    Example:
+        []
+
+    """
 
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 

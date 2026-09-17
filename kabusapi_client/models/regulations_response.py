@@ -56,7 +56,9 @@ class RegulationsResponse:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.regulations_response_regulations_info_item import RegulationsResponseRegulationsInfoItem
+        from ..models.regulations_response_regulations_info_item import (
+            RegulationsResponseRegulationsInfoItem,  # noqa: PLC0415
+        )
 
         d = dict(src_dict)
         symbol = d.pop("Symbol", UNSET)
