@@ -63,7 +63,7 @@ class 株価情報種別14:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.株価情報種別14_ranking_item import 株価情報種別14RankingItem
+        from ..models.株価情報種別14_ranking_item import 株価情報種別14RankingItem  # noqa: PLC0415
 
         d = dict(src_dict)
         type_ = d.pop("Type", UNSET)

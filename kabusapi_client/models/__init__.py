@@ -61,6 +61,8 @@ from .request_unregister import RequestUnregister
 from .request_unregister_symbols_item import RequestUnregisterSymbolsItem
 from .symbol_name_success import SymbolNameSuccess
 from .symbol_success import SymbolSuccess
+from .time_and_sales_response import TimeAndSalesResponse
+from .time_and_sales_response_trading_price_item import TimeAndSalesResponseTradingPriceItem
 from .token_success import TokenSuccess
 from .unregister_all_success import UnregisterAllSuccess
 from .unregister_all_success_regist_list import UnregisterAllSuccessRegistList
@@ -143,6 +145,8 @@ __all__ = (
     "RequestUnregisterSymbolsItem",
     "SymbolNameSuccess",
     "SymbolSuccess",
+    "TimeAndSalesResponse",
+    "TimeAndSalesResponseTradingPriceItem",
     "TokenSuccess",
     "UnregisterAllSuccess",
     "UnregisterAllSuccessRegistList",
