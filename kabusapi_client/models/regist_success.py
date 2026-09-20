@@ -43,7 +43,7 @@ class RegistSuccess:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.regist_success_regist_list_item import RegistSuccessRegistListItem
+        from ..models.regist_success_regist_list_item import RegistSuccessRegistListItem  # noqa: PLC0415
 
         d = dict(src_dict)
         _regist_list = d.pop("RegistList", UNSET)
