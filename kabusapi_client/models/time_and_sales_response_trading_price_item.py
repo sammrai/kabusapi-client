@@ -8,50 +8,59 @@ from attrs import field as _attrs_field
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="TokenSuccess")
+T = TypeVar("T", bound="TimeAndSalesResponseTradingPriceItem")
 
 
 @_attrs_define
-class TokenSuccess:
+class TimeAndSalesResponseTradingPriceItem:
     """
     Attributes:
-        result_code (int | Unset): 結果コード<br>0が成功。それ以外はエラーコード。 Example: 0.
-        token (str | Unset): APIトークン Example: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+        time (str | Unset): 出来時刻
+        volume (int | Unset): 出来高
+        price (int | Unset): 出来値
     """
 
-    result_code: int | Unset = UNSET
-    token: str | Unset = UNSET
+    time: str | Unset = UNSET
+    volume: int | Unset = UNSET
+    price: int | Unset = UNSET
     additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
-        result_code = self.result_code
+        time = self.time
 
-        token = self.token
+        volume = self.volume
+
+        price = self.price
 
         field_dict: dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if result_code is not UNSET:
-            field_dict["ResultCode"] = result_code
-        if token is not UNSET:
-            field_dict["Token"] = token
+        if time is not UNSET:
+            field_dict["Time"] = time
+        if volume is not UNSET:
+            field_dict["Volume"] = volume
+        if price is not UNSET:
+            field_dict["Price"] = price
 
         return field_dict
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
         d = dict(src_dict)
-        result_code = d.pop("ResultCode", UNSET)
+        time = d.pop("Time", UNSET)
 
-        token = d.pop("Token", UNSET)
+        volume = d.pop("Volume", UNSET)
 
-        token_success = cls(
-            result_code=result_code,
-            token=token,
+        price = d.pop("Price", UNSET)
+
+        time_and_sales_response_trading_price_item = cls(
+            time=time,
+            volume=volume,
+            price=price,
         )
 
-        token_success.additional_properties = d
-        return token_success
+        time_and_sales_response_trading_price_item.additional_properties = d
+        return time_and_sales_response_trading_price_item
 
     @property
     def additional_keys(self) -> list[str]:

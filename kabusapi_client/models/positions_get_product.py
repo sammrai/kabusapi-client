@@ -1,7 +1,7 @@
-from enum import Enum
+from enum import StrEnum
 
 
-class PositionsGetProduct(str, Enum):
+class PositionsGetProduct(StrEnum):
     VALUE_0 = "0"
     VALUE_1 = "1"
     VALUE_2 = "2"
