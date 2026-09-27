@@ -101,15 +101,22 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Create and checkout new branch
-          BRANCH_NAME="update-openapi-client-${{ github.run_number }}"
-          git checkout -b "$BRANCH_NAME"
+          # Use a fixed branch so repeated runs update the same PR
+          BRANCH_NAME="update-openapi-client"
+          git checkout -B "$BRANCH_NAME"
 
           # Commit changes
           git commit -m "Update OpenAPI generated client"
 
-          # Push to remote
-          git push origin "$BRANCH_NAME"
+          # Push to remote (overwrite previous run)
+          git push --force origin "$BRANCH_NAME"
+
+          # Skip PR creation if one is already open for this branch
+          EXISTING_PR=$(gh pr list --head "$BRANCH_NAME" --base master --state open --json number --jq '.[0].number')
+          if [ -n "$EXISTING_PR" ]; then
+            echo "PR #$EXISTING_PR already exists; updated branch only"
+            exit 0
+          fi
 
           # Create pull request using gh CLI
           gh pr create \
