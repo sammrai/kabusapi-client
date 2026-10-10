@@ -20,10 +20,10 @@ class 信用情報種別813:
     """
     Example:
         {'Type': 7, 'ExchangeDivision': 'ALL', 'Ranking': [{'No': 1, 'Symbol': '7888', 'SymbolName': '三光合成',
-            'SellRapidPaymentPercentage': 1410.9, 'SellLastWeekRatio': 1343.4, 'BuyRapidPaymentPercentage': 1108.2,
-            'BuyLastWeekRatio': 832.7, 'Ratio': 0.79, 'ExchangeName': '東証プ', 'CategoryName': '化学'}, {'No': 2, 'Symbol':
-            '4564', 'SymbolName': 'ＯＴＳ', 'SellRapidPaymentPercentage': 6588, 'SellLastWeekRatio': 1315.7,
-            'BuyRapidPaymentPercentage': 22180.5, 'BuyLastWeekRatio': -223.4, 'Ratio': 3.37, 'ExchangeName': '東証グ',
+            'SellRapidPaymentPercentage': 1410.9, 'SellLastDayRatio': 1343.4, 'BuyRapidPaymentPercentage': 1108.2,
+            'BuyLastDayRatio': 832.7, 'Ratio': 0.79, 'ExchangeName': '東証プ', 'CategoryName': '化学'}, {'No': 2, 'Symbol':
+            '4564', 'SymbolName': 'ＯＴＳ', 'SellRapidPaymentPercentage': 6588, 'SellLastDayRatio': 1315.7,
+            'BuyRapidPaymentPercentage': 22180.5, 'BuyLastDayRatio': -223.4, 'Ratio': 3.37, 'ExchangeName': '東証グ',
             'CategoryName': '医薬品'}]}
 
     Attributes:
