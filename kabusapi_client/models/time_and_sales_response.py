@@ -104,9 +104,7 @@ class TimeAndSalesResponse:
 
     @classmethod
     def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
-        from ..models.time_and_sales_response_trading_price_item import (
-            TimeAndSalesResponseTradingPriceItem,  # noqa: PLC0415
-        )
+        from ..models.time_and_sales_response_trading_price_item import TimeAndSalesResponseTradingPriceItem  # noqa: PLC0415
 
         d = dict(src_dict)
         symbol = d.pop("Symbol", UNSET)

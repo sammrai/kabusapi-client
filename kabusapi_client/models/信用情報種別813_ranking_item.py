@@ -19,9 +19,9 @@ class 信用情報種別813RankingItem:
         symbol (str | Unset): 銘柄コード
         symbol_name (str | Unset): 銘柄名称
         sell_rapid_payment_percentage (float | Unset): 売残（千株）
-        sell_last_week_ratio (float | Unset): 売残前週比
+        sell_last_day_ratio (float | Unset): 売残前日比
         buy_rapid_payment_percentage (float | Unset): 買残（千株）
-        buy_last_week_ratio (float | Unset): 買残前週比
+        buy_last_day_ratio (float | Unset): 買残前日比
         ratio (float | Unset): 倍率
         exchange_name (str | Unset): 市場名
         category_name (str | Unset): 業種名
@@ -31,9 +31,9 @@ class 信用情報種別813RankingItem:
     symbol: str | Unset = UNSET
     symbol_name: str | Unset = UNSET
     sell_rapid_payment_percentage: float | Unset = UNSET
-    sell_last_week_ratio: float | Unset = UNSET
+    sell_last_day_ratio: float | Unset = UNSET
     buy_rapid_payment_percentage: float | Unset = UNSET
-    buy_last_week_ratio: float | Unset = UNSET
+    buy_last_day_ratio: float | Unset = UNSET
     ratio: float | Unset = UNSET
     exchange_name: str | Unset = UNSET
     category_name: str | Unset = UNSET
@@ -48,11 +48,11 @@ class 信用情報種別813RankingItem:
 
         sell_rapid_payment_percentage = self.sell_rapid_payment_percentage
 
-        sell_last_week_ratio = self.sell_last_week_ratio
+        sell_last_day_ratio = self.sell_last_day_ratio
 
         buy_rapid_payment_percentage = self.buy_rapid_payment_percentage
 
-        buy_last_week_ratio = self.buy_last_week_ratio
+        buy_last_day_ratio = self.buy_last_day_ratio
 
         ratio = self.ratio
 
@@ -71,12 +71,12 @@ class 信用情報種別813RankingItem:
             field_dict["SymbolName"] = symbol_name
         if sell_rapid_payment_percentage is not UNSET:
             field_dict["SellRapidPaymentPercentage"] = sell_rapid_payment_percentage
-        if sell_last_week_ratio is not UNSET:
-            field_dict["SellLastWeekRatio"] = sell_last_week_ratio
+        if sell_last_day_ratio is not UNSET:
+            field_dict["SellLastDayRatio"] = sell_last_day_ratio
         if buy_rapid_payment_percentage is not UNSET:
             field_dict["BuyRapidPaymentPercentage"] = buy_rapid_payment_percentage
-        if buy_last_week_ratio is not UNSET:
-            field_dict["BuyLastWeekRatio"] = buy_last_week_ratio
+        if buy_last_day_ratio is not UNSET:
+            field_dict["BuyLastDayRatio"] = buy_last_day_ratio
         if ratio is not UNSET:
             field_dict["Ratio"] = ratio
         if exchange_name is not UNSET:
@@ -97,11 +97,11 @@ class 信用情報種別813RankingItem:
 
         sell_rapid_payment_percentage = d.pop("SellRapidPaymentPercentage", UNSET)
 
-        sell_last_week_ratio = d.pop("SellLastWeekRatio", UNSET)
+        sell_last_day_ratio = d.pop("SellLastDayRatio", UNSET)
 
         buy_rapid_payment_percentage = d.pop("BuyRapidPaymentPercentage", UNSET)
 
-        buy_last_week_ratio = d.pop("BuyLastWeekRatio", UNSET)
+        buy_last_day_ratio = d.pop("BuyLastDayRatio", UNSET)
 
         ratio = d.pop("Ratio", UNSET)
 
@@ -114,9 +114,9 @@ class 信用情報種別813RankingItem:
             symbol=symbol,
             symbol_name=symbol_name,
             sell_rapid_payment_percentage=sell_rapid_payment_percentage,
-            sell_last_week_ratio=sell_last_week_ratio,
+            sell_last_day_ratio=sell_last_day_ratio,
             buy_rapid_payment_percentage=buy_rapid_payment_percentage,
-            buy_last_week_ratio=buy_last_week_ratio,
+            buy_last_day_ratio=buy_last_day_ratio,
             ratio=ratio,
             exchange_name=exchange_name,
             category_name=category_name,
