@@ -59,6 +59,9 @@ jobs:
           mv temp-client/README.md ./
           mv temp-client/.gitignore ./client.gitignore
 
+          # Restore hand-written modules that are not generated (token issuing / authenticated client)
+          cp extensions/session.py kabusapi_client/session.py
+
           # Fix package name in pyproject.toml
           sed -i 's/name = "kabu-ステーションapi-client"/name = "kabusapi-client"/' pyproject.toml
           sed -i 's/A client library for accessing kabuステーションAPI/A client library for accessing kabu STATION API/' pyproject.toml
@@ -76,6 +79,15 @@ jobs:
             echo ""
             echo "# Using pip"
             echo "pip install git+https://github.com/sammrai/kabusapi-client.git"
+            echo '```'
+            echo ""
+            echo "## Token helpers"
+            echo ""
+            echo '```python'
+            echo "from kabusapi_client.session import issue_token, authenticated_client, from_env"
+            echo ""
+            echo "token = issue_token(base_url, api_password)     # issues a new token (the previous one becomes invalid)"
+            echo "client = authenticated_client(base_url, token)  # reuse a token without issuing"
             echo '```'
             echo ""
             echo "## Repository"
