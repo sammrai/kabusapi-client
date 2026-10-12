@@ -134,6 +134,15 @@ uv add git+https://github.com/sammrai/kabusapi-client.git
 pip install git+https://github.com/sammrai/kabusapi-client.git
 ```
 
+## Token helpers
+
+```python
+from kabusapi_client.session import issue_token, authenticated_client, from_env
+
+token = issue_token(base_url, api_password)     # issues a new token (the previous one becomes invalid)
+client = authenticated_client(base_url, token)  # reuse a token without issuing
+```
+
 ## Repository
 
 - GitHub: https://github.com/sammrai/kabusapi-client
