@@ -136,7 +136,7 @@ class RequestSendOrderDerivFuture:
                 </tr>
                 <tr>
                   <td>逆指値（指値）</td>
-                  <td>FAK</td>
+                  <td>FAS</td>
                   <td>●</td>
                   <td>●</td>
                   <td>●</td>
@@ -218,7 +218,7 @@ class RequestSendOrderDerivFuture:
                 </tr>
                 <tr>
                   <td>逆指値（指値）</td>
-                  <td>FAK</td>
+                  <td>FAS</td>
                   <td>●</td>
                   <td>●</td>
                   <td>●</td>
